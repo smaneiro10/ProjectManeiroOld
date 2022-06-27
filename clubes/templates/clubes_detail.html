@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% load static %}
+{% block ProjectManeiro_content %}
+
+<h2>Detalle del Club</h2>
+<hr></hr>
+<p><h3>Club: {{ clubes.nombre }}</h3></p>
+<p><h4>Provincia: {{ clubes.provincia }}</h4></p>
+<h4>Descripción:</h4>
+<p><textarea readonly rows="7" cols="90" >{{ clubes.descripcion }}</textarea></p>
+<p><a class="btn btn-azul" href="{% url 'clubes:clubes-list' %}">Regresar a la lista de clubes</a></p>
+{% endblock %}

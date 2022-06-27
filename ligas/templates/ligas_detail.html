@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% load static %}
+{% block ProjectManeiro_content %}
+
+<h2>Detalle de la Liga</h2>
+<hr></hr>
+<p><h3>Torneo: {{ ligas.torneo }}</h3></p>
+<p><h4>Equipos: {{ ligas.equipos }}</h4></p>
+<p><h4>Internacional: 
+{% if ligas.internacional %}
+    Si
+{% else %}
+    No
+{% endif%}</h4></p>
+<h4>Descripción:</h4>
+<p><textarea readonly rows="5" cols="50" >{{ ligas.descripcion }}</textarea></p>
+<p><a class="btn btn-azul" href="{% url 'ligas:ligas-list' %}">Regresar a la lista de ligas</a></p>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+{% load static %}
+{% block ProjectManeiro_content %}
+
+<h2>Detalle del Jugador</h2>
+<hr></hr>
+<p><h3>Jugador: {{ jugadores.nombre }}</h3></p>
+<p><h4>Equipo: {{ jugadores.equipo }}</h4></p>
+<p><h4>Fecha de nacimiento: {{ jugadores.fecha_nacimiento }}</h4></p>
+<h4>Descripción:</h4>
+<p><textarea readonly rows="7" cols="90" >{{ jugadores.descripcion }}</textarea></p>
+<p><a class="btn btn-azul" href="{% url 'jugadores:jugadores-list' %}">Regresar a la lista de jugadores</a></p>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% load static %}
+{% block ProjectManeiro_content %}
+
+<h2>Registro</h2>
+<hr></hr>
+
+{% if form.errors %}
+<p style="color: red">Por favor diligenciar la forma completa.</p>
+{% endif %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-azul" type="submit">Registrar Usuario</button>
+</form>
+
+{% endblock %}

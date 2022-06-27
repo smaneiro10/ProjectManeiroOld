@@ -1,0 +1,41 @@
+{% extends "index.html" %}
+{% load static %}
+{% block ProjectManeiro_content %}
+
+{% if user.is_authenticated %}
+<h2>Lista de Jugadores</h2>
+<a class="btn btn-azul" href="{% url 'jugadores:jugadores-add' %}">Crear nuevo Jugador</a>
+
+{% endif %}
+<hr></hr>
+<ul>{% if user.is_authenticated %}
+    {% for jugadores in jugadores_list %}
+    <li>
+        {{jugadores}}
+        (
+            <a href="{% url 'jugadores:jugadores-detail' jugadores.id %}">
+                <i class="fa fa-eye" style="color:greenyellow"> </i>
+            </a>
+        |
+        <a href="{% url 'jugadores:jugadores-update' jugadores.id %}">
+            <i class="fa fa-pencil" style="color:gold"> </i>
+        </a>
+        |
+        <a href="{% url 'jugadores:jugadores-delete' jugadores.id %}">
+            <i class="fa fa-trash" style="color:red"> </i>
+        </a>
+        )
+    </li>
+    {% endfor %}
+    {% else %}
+    <br>
+    <table border="1" bgcolor="darkred">
+        <thead>
+            <th><br><h2 style="color:white" >&nbsp&nbspDEBE IDENTIFICARSE COMO USUARIO&nbsp&nbsp</h2><br></th>
+        </thead>
+    </table>
+    <br>
+    {% endif %}
+</ul>
+
+{% endblock %}

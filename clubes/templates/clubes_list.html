@@ -1,0 +1,42 @@
+{% extends "index.html" %}
+{% load static %}
+{% block ProjectManeiro_content %}
+
+{% if user.is_authenticated %}
+<h2>Lista de Clubes</h2>
+<a class="btn btn-azul" href="{% url 'clubes:clubes-add' %}">Crear nuevo Club</a>
+{% endif %}
+<hr></hr>
+<ul>
+    {% if user.is_authenticated %}
+    {% for clubes in clubes_list %}
+    <li>
+        {{clubes}}
+        (
+        <a href="{% url 'clubes:clubes-detail' clubes.id %}">
+            <i class="fa fa-eye" style="color:greenyellow"> </i>
+        </a>
+        |
+        <a href="{% url 'clubes:clubes-update' clubes.id %}">
+            <i class="fa fa-pencil" style="color:gold"> </i>
+        </a>
+        |
+        <a href="{% url 'clubes:clubes-delete' clubes.id %}">
+            <i class="fa fa-trash" style="color:red"> </i>
+        </a>
+
+        )
+    </li>
+    {% endfor %}
+    {% else %}
+    <br>
+    <table border="1" bgcolor="darkred">
+        <thead>
+            <th><br><h2 style="color:white" >&nbsp&nbspDEBE IDENTIFICARSE COMO USUARIO&nbsp&nbsp</h2><br></th>
+        </thead>
+    </table>
+    <br>
+    {% endif %}
+</ul>
+
+{% endblock %}

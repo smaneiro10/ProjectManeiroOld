@@ -1,0 +1,49 @@
+{% extends "index.html" %}
+{% load static %}
+{% block ProjectManeiro_content %}
+
+{% if user.is_authenticated %}
+<div class="text-center">
+    <h4>{{ user.username }}</h4>
+    <img height="80px" src="{{url}}" alt="">
+    <h5><a style="color: rgb(3, 36, 184)" href="{% url 'user:avatar-load' %}">Cambiar Avatar</a></h5>
+</div>
+{% endif %}
+<br>
+<h2>Buscador de Jugadores</h2>
+<br>
+
+<form action="/search" method="GET">
+    <div>
+        <input type="text" name="search_param" id="jugadores_nombre_or_equipo" placeholder="Buscar.."
+        {% if search_param %} value="{{ search_param }}" {% endif %}
+        >
+        <input type="submit" value="Buscar">
+        <a style="color:chartreuse" href="{% url 'home:main' %}"><i class="fa fa-undo"></i></a>
+    </div>
+
+</form>
+<hr>
+</hr>
+{% if inicio %}
+{% if user.is_authenticated %}
+{% if jugadores %}
+    <ul>
+        {% for jugador in jugadores %}
+            <li>
+                Jugador: {{jugador.nombre}}
+                -- Equipo: {{jugador.equipo}}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% else %}
+<table border="1" bgcolor="darkred">
+    <thead>
+        <th><br><h2 style="color:white" >&nbsp&nbspDEBE IDENTIFICARSE COMO USUARIO&nbsp&nbsp</h2><br></th>
+    </thead>
+</table>
+{% endif %}
+{% endif %}
+
+{% endblock %}

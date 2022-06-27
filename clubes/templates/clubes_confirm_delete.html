@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% load static %}
+{% block ProjectManeiro_content %}
+
+{% if user.is_superuser %}
+
+<h2>Eliminar Club</h2>
+<hr></hr>
+
+<p>Estás seguro de eliminar el Club: {{ clubes.nombre }}?</p>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input class="btn btn-azul" type="submit" value="Si, eliminar.">
+    <a class="btn2 btn-primary" href="{% url 'clubes:clubes-list' %}" >Cancelar</a>
+</form>
+{% else %}
+<br><br>
+<table border="1" bgcolor="darkred">
+    <thead>
+        <th><br><h2 style="color:white" >&nbsp&nbspUSTED NO PUEDE ELIMINAR CLUBES&nbsp&nbsp</h2><br></th>
+    </thead>
+</table>
+{%endif%}
+
+{% endblock %}
