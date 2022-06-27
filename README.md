@@ -1,12 +1,10 @@
 # Instrucciones para ejecutar este proyecto
 
-- Clonar el proyecto y cambiar de rama
+- Clonar el proyecto
 ```bash
-git clone https://github.com/coder-live-class/django-coderhouse-project.git
+git clone https://github.com/smaneiro10/ProjectManeiro.git
 
-cd django-coderhouse-project
-
-git checkout class_25
+cd repositoriomaneiro
 
 ```
 
