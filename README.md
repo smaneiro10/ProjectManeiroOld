@@ -26,7 +26,7 @@ export SECRET_KEY='4e8&y0ygfox1cg7f3owcku9$hv_(nu7t3ku$p637-+!so2jlvs'
 export DEBUG='True'
 export ALLOWED_HOSTS='*,'
 ```
-o crear el archivo `coderhouse_project/.env` con el siguente contenido
+o crear el archivo `ProjectManeiro/.env` con el siguente contenido
 ```text
 SECRET_KEY=4e8&y0ygfox1cg7f3owcku9$hv_(nu7t3ku$p637-+!so2jlvs
 DEBUG=True
@@ -154,5 +154,5 @@ git pull origin master
 Sirve para cambiar la dirección url del repositorio que tenemos por origin.
 ```bash
 git remote set-url origin <url_de_tu_repositorio_en_GitHub>
-git remote set-url origin https://github.com/coder-live-class/django-coderhouse-project.git
+git remote set-url origin https://github.com/smaneiro10/ProjectManeiro.git
 ```
